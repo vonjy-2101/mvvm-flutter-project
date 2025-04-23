@@ -10,21 +10,21 @@ class PostListScreen extends ConsumerWidget{
   @override
   Widget build(BuildContext context, WidgetRef ref) {
 
-      final postProvider = ref.watch(postListViewModel);
+    final postProvider = ref.watch(postListViewModel);
 
-      return Scaffold(
+    return Scaffold(
         body: SizedBox(
-          width: MediaQuery.sizeOf(context).width,
-          height: MediaQuery.sizeOf(context).height,
-          child: postProvider.isLoading
-            ? Center(child: CircularProgressIndicator())
-            : ListView.builder(
-                itemCount: postProvider.listPost.length,
-                itemBuilder: (_,index){
-                  return PostContent(post: postProvider.listPost[index],);
+            width: MediaQuery.sizeOf(context).width,
+            height: MediaQuery.sizeOf(context).height,
+            child: postProvider.isLoading
+                ? Center(child: CircularProgressIndicator())
+                : ListView.builder(
+                    itemCount: postProvider.listPost.length,
+                    itemBuilder: (_,index){
+                        return PostContent(post: postProvider.listPost[index],);
                 })
-            )
-      );
+        )
+    );
 
   }
 
@@ -32,29 +32,29 @@ class PostListScreen extends ConsumerWidget{
 
 class PostContent extends StatelessWidget{
 
-  PostModel post;
-  PostContent({
-    required this.post
-  });
+    PostModel post;
+    PostContent({
+        required this.post
+    });
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.sizeOf(context).width,
-      margin: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
-      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black12)
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(post.title,style: GoogleFonts.abrilFatface(fontSize: 18,fontWeight: FontWeight.bold),),
-          SizedBox(height: 10),
-          Text(post.body),
-        ],
-      ),
-    );
-  }
+    @override
+    Widget build(BuildContext context) {
+        return Container(
+            width: MediaQuery.sizeOf(context).width,
+            margin: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12)
+            ),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                    Text(post.title,style: GoogleFonts.abrilFatface(fontSize: 18,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 10),
+                    Text(post.body),
+                ],
+            ),
+        );
+    }
 
 }
