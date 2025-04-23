@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mvvm/models/post_model.dart';
 
+import '../../models/post_model.dart';
 import '../../viewmodels/post_list_viewmodel.dart';
 
 class PostListScreen extends ConsumerWidget{

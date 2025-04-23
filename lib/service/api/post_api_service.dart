@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:mvvm/models/post_model.dart';
+import '../../models/post_model.dart';
 
 class PostApiService{
 

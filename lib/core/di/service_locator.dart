@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mvvm/service/api/post_api_service.dart';
+
+import '../../service/api/post_api_service.dart';
 
 final getIt = GetIt.instance;
 

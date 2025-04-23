@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mvvm/core/di/service_locator.dart';
-import 'package:mvvm/models/post_model.dart';
-import 'package:mvvm/service/api/post_api_service.dart';
+
+import '../core/di/service_locator.dart';
+import '../models/post_model.dart';
+import '../service/api/post_api_service.dart';
 
 final postListViewModel = ChangeNotifierProvider((ref){
   return PostListViewmodel(getIt<PostApiService>());
