@@ -7,7 +7,7 @@ final getIt = GetIt.instance;
 
 void setupInjection()
 {
-  //Service
-  getIt.registerLazySingleton<Dio>(() => Dio(BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com')));
-  getIt.registerLazySingleton<PostApiService>(() => PostApiService(getIt<Dio>()));
+    //Service
+    getIt.registerLazySingleton<Dio>(() => Dio(BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com')));
+    getIt.registerLazySingleton<PostApiService>(() => PostApiService(getIt<Dio>()));
 }

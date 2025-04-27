@@ -33,9 +33,7 @@ class PostListScreen extends ConsumerWidget{
 class PostContent extends StatelessWidget{
 
     PostModel post;
-    PostContent({
-        required this.post
-    });
+    PostContent({required this.post});
 
     @override
     Widget build(BuildContext context) {

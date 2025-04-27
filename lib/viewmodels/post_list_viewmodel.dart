@@ -12,30 +12,30 @@ final postListViewModel = ChangeNotifierProvider((ref){
 class PostListViewmodel extends ChangeNotifier
 {
 
-  PostApiService _postApiService;
-  PostListViewmodel(this._postApiService) : super(){ getAllBook(); }
+    final PostApiService _postApiService;
+    PostListViewmodel(this._postApiService) : super(){ getAllBook(); }
 
-  bool _isLoading = false;
-  List<PostModel> _listPost = [];
+    bool _isLoading = false;
+    List<PostModel> _listPost = [];
 
-  bool get isLoading => _isLoading;
-  List<PostModel> get listPost => _listPost;
+    bool get isLoading => _isLoading;
+    List<PostModel> get listPost => _listPost;
 
-  void getAllBook() async
-  {
-    _isLoading = true;
-    notifyListeners();
-
-    try{
-      _listPost = await _postApiService.fetchAllPost();
-    }catch(e)
+    void getAllBook() async
     {
-      throw 'Une erreur est survenue : $e';
-    }finally
-    {
-      _isLoading = false;
-      notifyListeners();
+        _isLoading = true;
+        notifyListeners();
+
+        try{
+            _listPost = await _postApiService.fetchAllPost();
+        }catch(e)
+        {
+            throw 'Une erreur est survenue : $e';
+        }finally
+        {
+            _isLoading = false;
+            notifyListeners();
+        }
     }
-  }
 
 }

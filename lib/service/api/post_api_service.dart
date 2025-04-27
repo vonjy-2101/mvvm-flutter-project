@@ -3,18 +3,18 @@ import '../../models/post_model.dart';
 
 class PostApiService{
 
-  Dio _dio;
-  PostApiService(this._dio);
+    final Dio _dio;
+    PostApiService(this._dio);
 
-  Future <List<PostModel>> fetchAllPost() async
-  {
-    try{
-      final response = await _dio.get('/posts');
-      return (response.data as List).map((e) => PostModel.fromJson(e)).toList();
-    }catch(e)
+    Future <List<PostModel>> fetchAllPost() async
     {
-      throw 'Erreur de connexion : $e';
+        try{
+            final response = await _dio.get('/posts');
+            return (response.data as List).map((e) => PostModel.fromJson(e)).toList();
+        }catch(e)
+        {
+            throw 'Erreur de connexion : $e';
+        }
     }
-  }
 
 }
