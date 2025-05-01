@@ -17,6 +17,7 @@ class PostListViewmodel extends ChangeNotifier
 
     bool _isLoading = false;
     List<PostModel> _listPost = [];
+    String? error;
 
     bool get isLoading => _isLoading;
     List<PostModel> get listPost => _listPost;
@@ -30,7 +31,7 @@ class PostListViewmodel extends ChangeNotifier
             _listPost = await _postApiService.fetchAllPost();
         }catch(e)
         {
-            throw 'Une erreur est survenue : $e';
+            error = "Une erreur est survenue";
         }finally
         {
             _isLoading = false;

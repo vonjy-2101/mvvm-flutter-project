@@ -20,11 +20,15 @@ class PostListScreen extends ConsumerWidget{
             height: MediaQuery.sizeOf(context).height,
             child: postProvider.isLoading
                 ? Center(child: CircularProgressIndicator())
-                : ListView.builder(
-                    itemCount: postProvider.listPost.length,
-                    itemBuilder: (_,index){
-                        return PostContent(post: postProvider.listPost[index],);
-                })
+                : (postProvider.error != null)
+                    ? Center(
+                        child: Text(postProvider.error!),
+                    )
+                    : ListView.builder(
+                        itemCount: postProvider.listPost.length,
+                        itemBuilder: (_,index){
+                            return PostContent(post: postProvider.listPost[index],);
+                    })
         )
     );
 
