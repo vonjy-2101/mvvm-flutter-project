@@ -18,4 +18,23 @@ class CommentApiService {
         }
     }
 
+    Future sendCommentPost(int idPost, Map<String, dynamic> dataComment) async
+    {
+        try{
+            final response = await _dio.post(
+                "/comments",
+                data: {
+                    "postId" : idPost,
+                    "name" : dataComment['name'],
+                    "email" : dataComment['email'],
+                    "body" : dataComment['body'],
+                }
+            );
+            console(response);
+        }catch(e)
+        {
+            throw 'Erreur de connexion : $e';
+        }
+    }
+
 }
