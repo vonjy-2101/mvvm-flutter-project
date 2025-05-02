@@ -72,7 +72,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                                     )
                                 ]else...[
                                     Container(
-                                        height: 600,
+                                        height: 550,
                                         decoration: BoxDecoration(
                                             border: Border.all(color: Colors.black26)
                                         ),
@@ -85,7 +85,14 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                                     )
                                 ],
                             ],
-                            
+                            OutlinedButton(
+                                onPressed: (){
+                                    commentProvider.sendNewComment(widget.post.id);
+                                },
+                                child: (commentProvider.isSendLoading)
+                                    ? CircularProgressIndicator()
+                                    : Text("New comment")
+                            )
                             
                         ],
                     ),
