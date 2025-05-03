@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../core/routes/app_pages.dart';
 import '../../models/post_model.dart';
 import '../../viewmodels/post_list_viewmodel.dart';
+import '../shared/app_header.dart';
 
 class PostListScreen extends ConsumerWidget{
 
@@ -15,6 +16,7 @@ class PostListScreen extends ConsumerWidget{
     final postProvider = ref.watch(postListViewModel);
 
     return Scaffold(
+        appBar: AppHeader(titlePage: "Post App",),
         body: SizedBox(
             width: MediaQuery.sizeOf(context).width,
             height: MediaQuery.sizeOf(context).height,
