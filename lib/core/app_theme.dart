@@ -3,11 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    primarySwatch: Colors.blue,
-    scaffoldBackgroundColor: Colors.white,
+    primaryColor: ColorAppThemeData.lightPrimary,
+    scaffoldBackgroundColor: ColorAppThemeData.lightBg,
     appBarTheme: AppBarTheme(
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white
+        backgroundColor: ColorAppThemeData.lightPrimary,
+        foregroundColor: const Color.fromARGB(255, 31, 31, 31)
     ),
     textTheme: const TextTheme(
         bodyLarge: TextStyle(color: Colors.black),
@@ -16,10 +16,10 @@ final ThemeData lightTheme = ThemeData(
 
 final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    primarySwatch: Colors.deepPurple,
-    scaffoldBackgroundColor: Colors.black,
+    primaryColor: ColorAppThemeData.darkPrimary,
+    scaffoldBackgroundColor: ColorAppThemeData.darkBg,
     appBarTheme: AppBarTheme(
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: ColorAppThemeData.darkPrimary,
         foregroundColor: Colors.white,
     ),
     textTheme: const TextTheme(
@@ -29,3 +29,20 @@ final ThemeData darkTheme = ThemeData(
 
 //Riverpod for theme app
 final themeModeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.system);
+
+
+class ColorAppThemeData {
+
+    static Color colorFromHex(String hexColor) {
+        final hexCode = hexColor.replaceAll('#', '');
+        return Color(int.parse('FF$hexCode', radix: 16));
+    }
+
+    static Color darkBg = colorFromHex('#111827');
+    static Color darkPrimary = colorFromHex("#1f2937");
+
+    static Color lightBg = colorFromHex('#dcdcdc');
+    static Color lightPrimary = colorFromHex("#ffffff");
+    
+
+}

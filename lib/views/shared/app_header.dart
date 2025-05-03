@@ -24,7 +24,7 @@ class AppHeader extends ConsumerWidget implements PreferredSizeWidget{
                     activeFgColor: Colors.white,
                     inactiveBgColor: Colors.grey,
                     inactiveFgColor: Colors.white,
-                    initialLabelIndex: 0,
+                    initialLabelIndex: (Theme.of(context).brightness == Brightness.dark) ? 0 : 1,
                     totalSwitches: 2,
                     labels: ['Dark', 'Light'],
                     radiusStyle: true,

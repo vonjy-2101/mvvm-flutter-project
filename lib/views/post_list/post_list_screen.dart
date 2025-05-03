@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../core/app_theme.dart';
 import '../../core/routes/app_pages.dart';
 import '../../models/post_model.dart';
 import '../../viewmodels/post_list_viewmodel.dart';
@@ -51,10 +52,11 @@ class PostContent extends StatelessWidget{
             },
             child: Container(
                 width: MediaQuery.sizeOf(context).width,
-                margin: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
-                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black12)
+                    color: Theme.of(context).primaryColor,
+                    borderRadius: BorderRadius.circular(10)
                 ),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
