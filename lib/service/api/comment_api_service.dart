@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+import '../../core/log.dart';
 import '../../models/comment_model.dart';
 
 class CommentApiService {
@@ -18,7 +19,7 @@ class CommentApiService {
         }
     }
 
-    Future sendCommentPost(int idPost, Map<String, dynamic> dataComment) async
+    Future<CommentModel> sendCommentPost(int idPost, Map<String, dynamic> dataComment) async
     {
         try{
             final response = await _dio.post(
@@ -30,7 +31,8 @@ class CommentApiService {
                     "body" : dataComment['body'],
                 }
             );
-            console(response);
+            return CommentModel.fromJson(response.data);            
+            
         }catch(e)
         {
             throw 'Erreur de connexion : $e';

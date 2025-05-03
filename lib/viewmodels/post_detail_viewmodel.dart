@@ -19,11 +19,13 @@ class PostDetailViewmodel extends ChangeNotifier {
     bool _isSendLoading = false;
     
     List<CommentModel> _commentPost = [];
+    CommentModel? _lastComment ;
     String? erreur;
 
     bool get isLoading => _isLoading;
     bool get isSendLoading => _isSendLoading;
     List<CommentModel> get commentPost => _commentPost;
+    CommentModel? get getLastComment => _lastComment;
 
     _initData()
     {
@@ -57,11 +59,12 @@ class PostDetailViewmodel extends ChangeNotifier {
         notifyListeners();
 
         try{
-            _commentApiService.sendCommentPost(idPost, {
+            _lastComment = await _commentApiService.sendCommentPost(idPost, {
                 "name" : "Test",
                 "email" : "test@test.com",
                 "body" :  "Loresm ipsulem"
             });
+            
         }catch(e)
         {
             erreur = "Erreur lors de la récupération des données";

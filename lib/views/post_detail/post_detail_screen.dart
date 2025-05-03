@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mvvm/models/comment_model.dart';
 
+import '../../core/routes/app_pages.dart';
 import '../../models/post_model.dart';
 import '../../viewmodels/post_detail_viewmodel.dart';
 
@@ -87,10 +89,11 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                             ],
                             OutlinedButton(
                                 onPressed: (){
-                                    commentProvider.sendNewComment(widget.post.id);
+                                    //commentProvider.sendNewComment(widget.post.id);
+                                    GoRouter.of(context).push(Routes.postComment, extra: widget.post);
                                 },
                                 child: (commentProvider.isSendLoading)
-                                    ? CircularProgressIndicator()
+                                    ? Center(child: CircularProgressIndicator(),)
                                     : Text("New comment")
                             )
                             
