@@ -41,7 +41,7 @@ class ColorAppThemeData {
     static Color darkBg = colorFromHex('#111827');
     static Color darkPrimary = colorFromHex("#1f2937");
 
-    static Color lightBg = colorFromHex('#dcdcdc');
+    static Color lightBg = colorFromHex('#e2edf1');
     static Color lightPrimary = colorFromHex("#ffffff");
     
 
