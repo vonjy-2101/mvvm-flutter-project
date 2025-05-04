@@ -7,6 +7,7 @@ import '../../core/app_theme.dart';
 import '../../core/routes/app_pages.dart';
 import '../../models/post_model.dart';
 import '../../viewmodels/post_list_viewmodel.dart';
+import '../shared/app_button.dart';
 import '../shared/app_header.dart';
 import '../shared/app_input_text.dart';
 
@@ -39,13 +40,7 @@ class PostListScreen extends ConsumerWidget{
                                 children: [
                                     AppInputText(controller: newPostController,max: 3,),
                                     SizedBox(height: 10,),
-                                    MaterialButton(
-                                        onPressed: (){},
-                                        color: Colors.blue,
-                                        height: 55,
-                                        minWidth: MediaQuery.sizeOf(context).width,
-                                        child: Text("Publish"),
-                                    )
+                                    AppButton(onPressed: () {},title: "Publish",)
                                 ],
                             ),
                         ),
