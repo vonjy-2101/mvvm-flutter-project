@@ -8,34 +8,68 @@ import '../../core/routes/app_pages.dart';
 import '../../models/post_model.dart';
 import '../../viewmodels/post_list_viewmodel.dart';
 import '../shared/app_header.dart';
+import '../shared/app_input_text.dart';
 
 class PostListScreen extends ConsumerWidget{
 
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
+    TextEditingController newPostController = TextEditingController(text: '');
 
-    final postProvider = ref.watch(postListViewModel);
+    @override
+    Widget build(BuildContext context, WidgetRef ref) {
 
-    return Scaffold(
-        appBar: AppHeader(titlePage: "Post App",),
-        body: SizedBox(
-            width: MediaQuery.sizeOf(context).width,
-            height: MediaQuery.sizeOf(context).height,
-            child: postProvider.isLoading
-                ? Center(child: CircularProgressIndicator())
-                : (postProvider.error != null)
-                    ? Center(
-                        child: Text(postProvider.error!),
-                    )
-                    : ListView.builder(
-                        itemCount: postProvider.listPost.length,
-                        itemBuilder: (_,index){
-                            return PostContent(post: postProvider.listPost[index],);
-                    })
-        )
-    );
+        final postProvider = ref.watch(postListViewModel);
 
-  }
+        return Scaffold(
+            appBar: AppHeader(titlePage: "Post App",),
+            body: SizedBox(
+                width: MediaQuery.sizeOf(context).width,
+                height: MediaQuery.sizeOf(context).height,
+                child: Column(
+                    children: [
+                        //Input text
+                        Container(  
+                            width: MediaQuery.sizeOf(context).width,
+                            margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                            padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
+                            decoration: BoxDecoration(
+                                color: Theme.of(context).primaryColor,
+                                borderRadius: BorderRadius.circular(10)
+                            ),
+                            child: Column(
+                                children: [
+                                    AppInputText(controller: newPostController,max: 3,),
+                                    SizedBox(height: 10,),
+                                    MaterialButton(
+                                        onPressed: (){},
+                                        color: Colors.blue,
+                                        height: 55,
+                                        minWidth: MediaQuery.sizeOf(context).width,
+                                        child: Text("Publish"),
+                                    )
+                                ],
+                            ),
+                        ),
+
+                        // List post
+                        Expanded(
+                            child: postProvider.isLoading
+                            ? Center(child: CircularProgressIndicator())
+                            : (postProvider.error != null)
+                                ? Center(
+                                    child: Text(postProvider.error!),
+                                )
+                                : ListView.builder(
+                                    itemCount: postProvider.listPost.length,
+                                    itemBuilder: (_,index){
+                                        return PostContent(post: postProvider.listPost[index],);
+                                })
+                        )
+                    ],
+                )
+            )
+        );
+
+    }
 
 }
 

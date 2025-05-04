@@ -20,8 +20,8 @@ class AppHeader extends ConsumerWidget implements PreferredSizeWidget{
                 ToggleSwitch(
                     minWidth: 90.0,
                     cornerRadius: 20.0,
-                    borderWidth : 20,
-                    borderColor: [Colors.red],
+                    borderWidth : 2,
+                    borderColor: [Colors.white, ColorAppThemeData.darkBg ],
                     activeBgColors: [[Theme.of(context).primaryColor],[Theme.of(context).primaryColor]],
                     activeFgColor: (Theme.of(context).brightness == Brightness.dark) ? Colors.white : ColorAppThemeData.darkPrimary,
                     inactiveBgColor: (Theme.of(context).brightness == Brightness.dark) ? Colors.white : ColorAppThemeData.darkPrimary,
