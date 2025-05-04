@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mvvm/models/post_model.dart';
 import 'package:mvvm/views/shared/app_button.dart';
 
+import '../../viewmodels/comment_post_viewmodel.dart';
 import '../shared/app_header.dart';
 import '../shared/app_input_text.dart';
 
@@ -20,6 +21,8 @@ class CommentPostScreen extends ConsumerWidget{
     @override
     Widget build(BuildContext context, WidgetRef ref) {
         
+        final commentPost = ref.watch(commentPostProvider);
+
         return Scaffold(
             appBar: AppHeader(titlePage: "Add comment",),
             body: Container(
@@ -67,7 +70,16 @@ class CommentPostScreen extends ConsumerWidget{
                                             padding: EdgeInsetsDirectional.symmetric(vertical: 15),
                                             child: AppInputText(controller: bodyController,hintText: "Write your comment here...",max: 3,),
                                         ),
-                                        AppButton(onPressed: (){}, title: "Send comment")
+                                        SizedBox(height: 10,),
+                                        AppButton(onPressed: (){ 
+                                            commentPost.formSendCheck(
+                                                context: context, 
+                                                idPost: post.id, 
+                                                emailController: emailController, 
+                                                titleController: titleController, 
+                                                bodyController: bodyController);
+                                            }, title: (commentPost.isSendLoading) ? "Send..." : " Publish"),
+                                        SizedBox(height: 15,),
                                     ],
                                 ),
                             ),

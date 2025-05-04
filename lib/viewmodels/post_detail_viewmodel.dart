@@ -16,14 +16,13 @@ class PostDetailViewmodel extends ChangeNotifier {
     PostDetailViewmodel(this._commentApiService);
 
     bool _isLoading = false;
-    bool _isSendLoading = false;
+    
     
     List<CommentModel> _commentPost = [];
     CommentModel? _lastComment ;
     String? erreur;
 
     bool get isLoading => _isLoading;
-    bool get isSendLoading => _isSendLoading;
     List<CommentModel> get commentPost => _commentPost;
     CommentModel? get getLastComment => _lastComment;
 
@@ -52,27 +51,10 @@ class PostDetailViewmodel extends ChangeNotifier {
         }
     }
 
-    sendNewComment(int idPost) async
+    updateListComment(CommentModel comment)
     {
-        _isSendLoading = true;
-        erreur = null;
+        _commentPost.add(comment);
         notifyListeners();
-
-        try{
-            _lastComment = await _commentApiService.sendCommentPost(idPost, {
-                "name" : "Test",
-                "email" : "test@test.com",
-                "body" :  "Loresm ipsulem"
-            });
-            
-        }catch(e)
-        {
-            erreur = "Erreur lors de la récupération des données";
-        }finally{
-            _isSendLoading = false;
-            notifyListeners();
-        }
-
     }
 
 }

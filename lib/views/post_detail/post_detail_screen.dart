@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mvvm/models/comment_model.dart';
 
+import '../../core/log.dart';
 import '../../core/routes/app_pages.dart';
 import '../../models/post_model.dart';
 import '../../viewmodels/post_detail_viewmodel.dart';
@@ -92,7 +93,16 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                             Padding(
                                 padding: EdgeInsets.symmetric(vertical: 15,horizontal: 15),
                                 child: AppButton(
-                                    onPressed: (){GoRouter.of(context).push(Routes.postComment, extra: widget.post);},
+                                    onPressed: (){
+                                        GoRouter.of(context).push(Routes.postComment, extra: widget.post).then((res) {
+                                            if(res != null)
+                                            {
+                                                final dataReturn = res as Map<String,dynamic>;
+                                                console("RETURN DATA : ${dataReturn['newComment']}");
+                                                commentProvider.updateListComment(dataReturn['newComment']);
+                                            }
+                                        });
+                                    },
                                     title: "Add comment",
                                 ),
                             )
