@@ -27,6 +27,7 @@ class PostListScreen extends ConsumerWidget{
                 height: MediaQuery.sizeOf(context).height,
                 child: Column(
                     children: [
+                        SizedBox(height: 10,),
                         //Input text
                         Container(  
                             width: MediaQuery.sizeOf(context).width,
@@ -36,13 +37,7 @@ class PostListScreen extends ConsumerWidget{
                                 color: Theme.of(context).primaryColor,
                                 borderRadius: BorderRadius.circular(10)
                             ),
-                            child: Column(
-                                children: [
-                                    AppInputText(controller: newPostController,max: 3,),
-                                    SizedBox(height: 10,),
-                                    AppButton(onPressed: () {},title: "Publish",)
-                                ],
-                            ),
+                            child: AppInputText(controller: newPostController,max: 3,),
                         ),
 
                         // List post

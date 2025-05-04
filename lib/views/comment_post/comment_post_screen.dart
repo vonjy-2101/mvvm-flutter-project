@@ -3,6 +3,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mvvm/models/post_model.dart';
+import 'package:mvvm/views/shared/app_button.dart';
+
+import '../shared/app_header.dart';
+import '../shared/app_input_text.dart';
 
 class CommentPostScreen extends ConsumerWidget{
 
@@ -17,19 +21,19 @@ class CommentPostScreen extends ConsumerWidget{
     Widget build(BuildContext context, WidgetRef ref) {
         
         return Scaffold(
-            appBar: AppBar(
-                title: Text("New comment"),
-            ),
+            appBar: AppHeader(titlePage: "Add comment",),
             body: Container(
                 child: SingleChildScrollView(
                     child: Column(
                         children: [
+                            SizedBox(height: 10,),
                             Container(
                                 width: MediaQuery.sizeOf(context).width,
-                                margin: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
-                                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                                margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                                padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
                                 decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black12)
+                                    color: Theme.of(context).primaryColor,
+                                    borderRadius: BorderRadius.circular(10)
                                 ),
                                 child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,26 +45,33 @@ class CommentPostScreen extends ConsumerWidget{
                                 ),
                             ),
                             SizedBox(height: 10,),
-                            Padding(
-                                padding: EdgeInsetsDirectional.symmetric(vertical: 20,horizontal: 10),
-                                child: TextFormField(
-                                    controller: emailController,
+                            Container(
+                                width: MediaQuery.sizeOf(context).width,
+                                margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                                padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context).primaryColor,
+                                    borderRadius: BorderRadius.circular(10)
+                                ),
+                                child: Column(
+                                    children: [
+                                        Padding(
+                                            padding: EdgeInsetsDirectional.symmetric(vertical: 15),
+                                            child: AppInputText(controller: emailController,hintText: "your@email.com",),
+                                        ),
+                                        Padding(
+                                            padding: EdgeInsetsDirectional.symmetric(vertical: 5),
+                                            child: AppInputText(controller: titleController,hintText: "Title",),
+                                        ),
+                                        Padding(
+                                            padding: EdgeInsetsDirectional.symmetric(vertical: 15),
+                                            child: AppInputText(controller: bodyController,hintText: "Write your comment here...",max: 3,),
+                                        ),
+                                        AppButton(onPressed: (){}, title: "Send comment")
+                                    ],
                                 ),
                             ),
-                            SizedBox(height: 10,),
-                            Padding(
-                                padding: EdgeInsetsDirectional.symmetric(vertical: 20,horizontal: 10),
-                                child: TextFormField(
-                                    controller: titleController,
-                                ),
-                            ),
-                            SizedBox(height: 10,),
-                            Padding(
-                                padding: EdgeInsetsDirectional.symmetric(vertical: 20,horizontal: 10),
-                                child: TextFormField(
-                                    controller: bodyController,
-                                ),
-                            ),
+                            
                             SizedBox(height: 10,),
                         ],
                     ),

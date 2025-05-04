@@ -7,6 +7,8 @@ import 'package:mvvm/models/comment_model.dart';
 import '../../core/routes/app_pages.dart';
 import '../../models/post_model.dart';
 import '../../viewmodels/post_detail_viewmodel.dart';
+import '../shared/app_button.dart';
+import '../shared/app_header.dart';
 
 class PostDetailScreen extends ConsumerStatefulWidget{
 
@@ -34,19 +36,19 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
         final commentProvider = ref.watch(postDetailViewModel);
 
         return Scaffold(
-                appBar: AppBar(
-                    title: Text(widget.post.title),
-                ),
+                appBar: AppHeader(titlePage: "Post Details",),
                 body: SingleChildScrollView(
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                            SizedBox(height: 10,),
                             Container(
                                 width: MediaQuery.sizeOf(context).width,
-                                margin: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
-                                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                                margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                                padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
                                 decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black12)
+                                    color: Theme.of(context).primaryColor,
+                                    borderRadius: BorderRadius.circular(10)
                                 ),
                                 child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +62,7 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                             SizedBox(height: 10,),
                             Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-                                child: Text("Commentaires:"),
+                                child: Text("Comments:",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
                             ),
                             SizedBox(height: 10,),
                             if(commentProvider.isLoading)...[
@@ -87,14 +89,12 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                                     )
                                 ],
                             ],
-                            OutlinedButton(
-                                onPressed: (){
-                                    //commentProvider.sendNewComment(widget.post.id);
-                                    GoRouter.of(context).push(Routes.postComment, extra: widget.post);
-                                },
-                                child: (commentProvider.isSendLoading)
-                                    ? Center(child: CircularProgressIndicator(),)
-                                    : Text("New comment")
+                            Padding(
+                                padding: EdgeInsets.symmetric(vertical: 15,horizontal: 15),
+                                child: AppButton(
+                                    onPressed: (){GoRouter.of(context).push(Routes.postComment, extra: widget.post);},
+                                    title: "Add comment",
+                                ),
                             )
                             
                         ],
@@ -115,14 +115,21 @@ class _CommentWidget extends StatelessWidget{
     Widget build(BuildContext context) {
         
         return Container(
-            padding: EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+            width: MediaQuery.sizeOf(context).width,
+            margin: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+            padding: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
+            decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(10)
+            ),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                    Text(comment.email,style: TextStyle(fontWeight: FontWeight.bold),),
+                    Text(comment.email,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 14),),
                     SizedBox(height: 4,),
                     Text(comment.body),
-                    SizedBox(height: 20,),
+                    SizedBox(height: 4,),
+                    Text("By: ${comment.email}",style: TextStyle(color: (Theme.of(context).brightness == Brightness.dark) ? Colors.white54 : Colors.black45,))
                 ],
             ),
         );
