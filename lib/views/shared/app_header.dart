@@ -28,7 +28,7 @@ class AppHeader extends ConsumerWidget implements PreferredSizeWidget{
                     inactiveFgColor: (Theme.of(context).brightness == Brightness.dark) ?ColorAppThemeData.darkPrimary : Colors.white,
                     initialLabelIndex: (Theme.of(context).brightness == Brightness.dark) ? 0 : 1,
                     totalSwitches: 2,
-                    labels: ['Dark', 'Light'],
+                    labels: ['🌜Dark', 'Light☀️'],
                     radiusStyle: true,
                     onToggle: (index) {
                         console(index);
