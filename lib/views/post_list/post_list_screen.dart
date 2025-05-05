@@ -37,7 +37,7 @@ class PostListScreen extends ConsumerWidget{
                                 color: Theme.of(context).primaryColor,
                                 borderRadius: BorderRadius.circular(10)
                             ),
-                            child: AppInputText(controller: newPostController,max: 3,),
+                            child: AppInputText(controller: newPostController,max: 3, onTap: (){ GoRouter.of(context).push(Routes.newPost); },),
                         ),
 
                         // List post
