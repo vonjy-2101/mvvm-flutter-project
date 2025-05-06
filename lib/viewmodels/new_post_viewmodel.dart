@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mvvm/core/di/service_locator.dart';
 import 'package:mvvm/models/post_model.dart';
 import 'package:mvvm/service/api/post_api_service.dart';
@@ -44,7 +45,7 @@ class NewPostViewmodel extends ChangeNotifier {
 
     }
 
-    Future<PostModel> _sendNewPost(BuildContext context, Map<String,dynamic> post) async
+    _sendNewPost(BuildContext context, Map<String,dynamic> post) async
     {
 
         _isSendLoading = true;
@@ -52,8 +53,7 @@ class NewPostViewmodel extends ChangeNotifier {
 
         try{
             final response = await _postApiService.addNewPost(post);
-            console(response);
-            return response;
+            GoRouter.of(context).pop({ 'newPost' :  response});
         }catch(e)
         {
             throw 'Erreur de connexion : $e';

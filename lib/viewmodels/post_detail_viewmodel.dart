@@ -53,7 +53,7 @@ class PostDetailViewmodel extends ChangeNotifier {
 
     updateListComment(CommentModel comment)
     {
-        _commentPost.add(comment);
+        _commentPost.insert(0,comment);
         notifyListeners();
     }
 

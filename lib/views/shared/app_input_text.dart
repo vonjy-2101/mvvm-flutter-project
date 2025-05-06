@@ -5,8 +5,9 @@ class AppInputText extends StatelessWidget {
   int? max;
   String? hintText;
   Function? onTap;
+  bool readOnly;
 
-  AppInputText({required this.controller, this.max, this.hintText, this.onTap});
+  AppInputText({required this.controller, this.max, this.hintText, this.onTap, this.readOnly = false});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +24,7 @@ class AppInputText extends StatelessWidget {
         ),
         maxLines: max ?? 1,
         keyboardType: TextInputType.multiline,
+        readOnly: readOnly,
     );
   }
 }

@@ -39,4 +39,10 @@ class PostListViewmodel extends ChangeNotifier
         }
     }
 
+    updateListPost(PostModel post)
+    {
+        _listPost.insert(0,post);//Insert at index : 0
+        notifyListeners();
+    }
+
 }

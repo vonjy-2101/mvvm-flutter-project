@@ -44,7 +44,6 @@ class NewPostScreen extends ConsumerWidget {
                                 ],
                                 ),
                             ),
-
                             SizedBox(height: 10),
                         ],
                     ),

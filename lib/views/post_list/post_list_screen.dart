@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/app_theme.dart';
+import '../../core/log.dart';
 import '../../core/routes/app_pages.dart';
 import '../../models/post_model.dart';
 import '../../viewmodels/post_list_viewmodel.dart';
@@ -37,7 +38,18 @@ class PostListScreen extends ConsumerWidget{
                                 color: Theme.of(context).primaryColor,
                                 borderRadius: BorderRadius.circular(10)
                             ),
-                            child: AppInputText(controller: newPostController,max: 3, onTap: (){ GoRouter.of(context).push(Routes.newPost); },),
+                            child: AppInputText(
+                                controller: newPostController,
+                                max: 3, 
+                                onTap: (){ 
+                                    GoRouter.of(context).push(Routes.newPost).then((data){
+                                        final dataReturn = data as Map<String,dynamic>;
+                                        console(data);
+                                        postProvider.updateListPost(dataReturn['newPost']);
+                                    }); 
+
+                                },
+                                readOnly: true,),
                         ),
 
                         // List post
