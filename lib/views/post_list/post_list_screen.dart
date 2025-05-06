@@ -43,9 +43,12 @@ class PostListScreen extends ConsumerWidget{
                                 max: 3, 
                                 onTap: (){ 
                                     GoRouter.of(context).push(Routes.newPost).then((data){
-                                        final dataReturn = data as Map<String,dynamic>;
-                                        console(data);
-                                        postProvider.updateListPost(dataReturn['newPost']);
+                                        if(data != null)
+                                        {
+                                            final dataReturn = data as Map<String,dynamic>;
+                                            console(data);
+                                            postProvider.updateListPost(dataReturn['newPost']);
+                                        }
                                     }); 
 
                                 },
