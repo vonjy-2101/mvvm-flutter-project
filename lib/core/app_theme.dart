@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
@@ -11,7 +12,8 @@ final ThemeData lightTheme = ThemeData(
     ),
     textTheme: const TextTheme(
         bodyLarge: TextStyle(color: Colors.black),
-    )
+    ),
+    fontFamily: GoogleFonts.acme().fontFamily
 );
 
 final ThemeData darkTheme = ThemeData(
@@ -25,6 +27,7 @@ final ThemeData darkTheme = ThemeData(
     textTheme: const TextTheme(
         bodyLarge: TextStyle(color: Colors.white),
     ),
+    fontFamily: GoogleFonts.acme().fontFamily
 );
 
 //Riverpod for theme app

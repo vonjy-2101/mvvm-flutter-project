@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 import '../../core/app_theme.dart';
@@ -15,7 +16,7 @@ class AppHeader extends ConsumerWidget implements PreferredSizeWidget{
     Widget build(BuildContext context, WidgetRef ref) {
 
         return AppBar(
-            title: Text(titlePage),
+            title: Text(titlePage,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),),
             actions: [
                 ToggleSwitch(
                     minWidth: 90.0,
