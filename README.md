@@ -4,6 +4,10 @@
 
 ---
 
+##
+
+---
+
 ## ✨ Features
 
 - 🔍 Display posts fetched from the REST API
@@ -39,7 +43,7 @@ Make sure you have Flutter installed on your machine, then follow these steps:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/mvvm-flutter-project.git
+git clone https://github.com/vonjy-2101/mvvm-flutter-project.git
 cd mvvm-flutter-project
 
 # 2. Install dependencies
