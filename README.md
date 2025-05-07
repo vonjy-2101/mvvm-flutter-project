@@ -4,7 +4,13 @@
 
 ---
 
-##
+## 📱 Screenshot
+
+<p align="center">
+  <img src="https://github.com/vonjy-2101/mvvm-flutter-project/blob/main/assets/screenshots/screenshot_1.png" alt="Home page (Dark mode)" width="30%" />
+  <img src="https://github.com/vonjy-2101/mvvm-flutter-project/blob/main/assets/screenshots/screenshot_2.png" alt="Home page (Light mode)" width="30%" />
+  <img src="https://github.com/vonjy-2101/mvvm-flutter-project/blob/main/assets/screenshots/screenshot_3.png" alt="Post comment page" width="30%" />
+</p>
 
 ---
 
