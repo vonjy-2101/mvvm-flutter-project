@@ -1,16 +1,47 @@
-# mvvm
+# 📮 PostApp
 
-A new Flutter project.
+**PostApp** is an small Flutter application that allows users to post, retrieve, and comment on posts from the free API [JSONPlaceholder](https://jsonplaceholder.typicode.com). The project follows the **MVVM** architecture for clear code organization, uses **Riverpod** for state management, **Dio** for network requests, and supports both **dark** and **light** themes.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🔍 Display posts fetched from the REST API
+- ➕ Create new posts
+- 💬 Add and view comments on posts
+- 🌙 Dark and light theme support
+- ✅ **MVVM** architecture for better maintainability
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Technologies Used
+
+- **Flutter**
+- **Dio** (for HTTP requests)
+- **Provider** (state management)
+- **MVVM** (Model - View - ViewModel)
+- **Material Design**
+
+## Structure (MVVM)
+lib/
+├── core/             # Global configurations (themes, constants, di.)
+├── models/           # Models
+├── service/api       # API services
+├── view_model/       # Presentation logic and providers(riverpod)
+├── view/             # UI (widgets, pages)
+├── main.dart 
+
+## 🚀 Installation
+
+Make sure you have Flutter installed on your machine, then follow these steps:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/mvvm-flutter-project.git
+cd mvvm-flutter-project
+
+# 2. Install dependencies
+flutter pub get
+
+# 3. Run the application
+flutter run
