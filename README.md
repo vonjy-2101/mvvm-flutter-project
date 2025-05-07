@@ -23,6 +23,7 @@
 - **Material Design**
 
 ## Structure (MVVM)
+```
 lib/
 ├── core/             # Global configurations (themes, constants, di.)
 ├── models/           # Models
@@ -30,6 +31,7 @@ lib/
 ├── view_model/       # Presentation logic and providers(riverpod)
 ├── view/             # UI (widgets, pages)
 ├── main.dart 
+```
 
 ## 🚀 Installation
 
