@@ -11,6 +11,7 @@ import '../../viewmodels/post_list_viewmodel.dart';
 import '../shared/app_button.dart';
 import '../shared/app_header.dart';
 import '../shared/app_input_text.dart';
+import '../shared/app_shimmer_comment.dart';
 
 class PostListScreen extends ConsumerWidget{
 
@@ -58,7 +59,12 @@ class PostListScreen extends ConsumerWidget{
                         // List post
                         Expanded(
                             child: postProvider.isLoading
-                            ? Center(child: CircularProgressIndicator())
+                            ? ListView.builder(
+                                itemCount: 10,
+                                itemBuilder: (_,index){
+                                    return AppShimmerComment();
+                                }
+                            )
                             : (postProvider.error != null)
                                 ? Center(
                                     child: Text(postProvider.error!),

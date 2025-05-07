@@ -10,6 +10,7 @@ import '../../models/post_model.dart';
 import '../../viewmodels/post_detail_viewmodel.dart';
 import '../shared/app_button.dart';
 import '../shared/app_header.dart';
+import '../shared/app_shimmer_comment.dart';
 
 class PostDetailScreen extends ConsumerStatefulWidget{
 
@@ -66,9 +67,16 @@ class _PostDetailScreenState extends ConsumerState<PostDetailScreen> {
                                 child: Text("Comments:",style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
                             ),
                             SizedBox(height: 10,),
+                            // List comment
                             if(commentProvider.isLoading)...[
-                                Center(
-                                    child: Text("Récupération des commentaires..."),
+                                SizedBox(
+                                    height: 550,
+                                    child: ListView.builder(
+                                        itemCount: 10,
+                                        itemBuilder: (_,index){
+                                            return AppShimmerComment();
+                                        }
+                                    )
                                 )
                             ]else...[
                                 if(commentProvider.erreur != null)...[
