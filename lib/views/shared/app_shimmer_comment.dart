@@ -9,6 +9,7 @@ class AppShimmerComment extends StatelessWidget{
         return Shimmer.fromColors(
             baseColor: const Color.fromARGB(43, 158, 158, 158),
             highlightColor: const Color.fromARGB(21, 245, 245, 245),
+            period : Duration(milliseconds: 800),
             child: Container(
               width: double.infinity,
               height: 100,
