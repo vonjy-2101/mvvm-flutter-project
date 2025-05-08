@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
-import '../../core/di/network.dart';
-import '../../core/log.dart';
+import '../../core/di/network_exception.dart';
 import '../../models/post_model.dart';
 
 class PostApiService{

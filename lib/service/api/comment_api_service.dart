@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../../core/di/network.dart';
-import '../../core/log.dart';
+import '../../core/di/network_exception.dart';
 import '../../models/comment_model.dart';
 
 class CommentApiService {
