@@ -1,6 +1,6 @@
 # 📮 PostApp
 
-**PostApp** is an small Flutter application that allows users to post, retrieve, and comment on posts from the free API [JSONPlaceholder](https://jsonplaceholder.typicode.com). The project follows the **MVVM** architecture for clear code organization, uses **Riverpod** for state management, **Dio** for network requests, and supports both **dark** and **light** themes.
+**PostApp** is a small Flutter application that allows users to post, retrieve, and comment on posts from the free API [JSONPlaceholder](https://jsonplaceholder.typicode.com). The project follows the **MVVM** architecture for clear code organization, uses **Riverpod** for state management, **Dio** for network requests, and supports both **dark** and **light** themes.
 
 ---
 
