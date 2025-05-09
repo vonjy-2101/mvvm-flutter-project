@@ -23,7 +23,7 @@ class MyApp extends ConsumerWidget {
             darkTheme: darkTheme,
             theme: lightTheme,
             themeMode: themeMode,
-            routerConfig: pagesRoutes,
+            routerConfig: pagesRoutes
         );
     }
 }
